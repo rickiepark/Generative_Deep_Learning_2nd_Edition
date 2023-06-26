@@ -14,7 +14,7 @@ def parse_midi_files(file_list, parser, seq_len, parsed_data_path=None):
     durations = []
 
     for i, file in enumerate(file_list):
-        print(i + 1, "Parsing %s" % file)
+        print(i + 1, "%s 파싱" % file)
         score = parser.parse(file).chordify()
 
         notes.append("START")
@@ -47,12 +47,12 @@ def parse_midi_files(file_list, parser, seq_len, parsed_data_path=None):
             if note_name and duration_name:
                 notes.append(note_name)
                 durations.append(duration_name)
-        print(f"{len(notes)} notes parsed")
+        print(f"{len(notes)}개 음표 파싱")
 
     notes_list = []
     duration_list = []
 
-    print(f"Building sequences of length {seq_len}")
+    print(f"길이가 {seq_len}인 시퀀스 만들기")
     for i in range(len(notes) - seq_len):
         notes_list.append(" ".join(notes[i : (i + seq_len)]))
         duration_list.append(" ".join(durations[i : (i + seq_len)]))
@@ -121,21 +121,17 @@ def get_midi_note(sample_note, sample_duration):
 
 
 class SinePositionEncoding(keras.layers.Layer):
-    """Sinusoidal positional encoding layer.
-    This layer calculates the position encoding as a mix of sine and cosine
-    functions with geometrically increasing wavelengths. Defined and formulized
-    in [Attention is All You Need](https://arxiv.org/abs/1706.03762).
-    Takes as input an embedded token tensor. The input must have shape
-    [batch_size, sequence_length, feature_size]. This layer will return a
-    positional encoding the same size as the embedded token tensor, which
-    can be added directly to the embedded token tensor.
-    Args:
-        max_wavelength: The maximum angular wavelength of the sine/cosine
-            curves, as described in Attention is All You Need. Defaults to
-            10000.
-    Examples:
+    """사인파 위치 인코딩 층.
+    
+    이 층은 기하학적으로 파장이 증가되는 사인 및 코사인 함수를 혼합하여 위치 인코딩을 계산합니다. 
+    [Attention is All You Need](https://arxiv.org/abs/1706.03762) 논문에 정의되어 있습니다. 
+    임베딩된 토큰 텐서를 입력으로 받습니다. 입력의 크기은 [배치 크기, 시퀀스 길이, 특성 크기]여야 합니다. 
+    이 층은 임베딩된 토큰 텐서와 같은 크기의 위치 인코딩을 반환하므로 임베딩된 토큰 텐서에 바로 더할 수 있습니다.
+    매개변수:
+        max_wavelength: 사인/코사인 곡선의 최대 각도 파장입니다. 기본값은 10000입니다.
+    예시:
     ```python
-    # create a simple embedding layer with sinusoidal positional encoding
+    # 사인파 위치 인코딩으로 간단한 임베딩 층 만들기
     seq_len = 100
     vocab_size = 1000
     embedding_dim = 32
@@ -146,7 +142,7 @@ class SinePositionEncoding(keras.layers.Layer):
     positional_encoding = keras_nlp.layers.SinePositionEncoding()(embedding)
     outputs = embedding + positional_encoding
     ```
-    References:
+    참조:
      - [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762)
     """
 
@@ -162,7 +158,7 @@ class SinePositionEncoding(keras.layers.Layer):
         # TODO(jbischof): replace `hidden_size` with`hidden_dim` for consistency
         # with other layers.
         input_shape = tf.shape(inputs)
-        # length of sequence is the second last dimension of the inputs
+        # 시퀀스의 길이는 입력의 두 번째 마지막 차원입니다.
         seq_length = input_shape[-2]
         hidden_size = input_shape[-1]
         position = tf.cast(tf.range(seq_length), self.compute_dtype)
@@ -173,10 +169,10 @@ class SinePositionEncoding(keras.layers.Layer):
             / tf.cast(hidden_size, self.compute_dtype),
         )
         angles = tf.expand_dims(position, 1) * tf.expand_dims(timescales, 0)
-        # even indices are sine, odd are cosine
+        # 짝수 인덱스는 사인, 홀수 인덱스는 코사인
         cos_mask = tf.cast(tf.range(hidden_size) % 2, self.compute_dtype)
         sin_mask = 1 - cos_mask
-        # embedding shape is [seq_length, hidden_size]
+        # 임베딩 크기는 [seq_length, hidden_size] 입니다.
         positional_encodings = (
             tf.sin(angles) * sin_mask + tf.cos(angles) * cos_mask
         )
