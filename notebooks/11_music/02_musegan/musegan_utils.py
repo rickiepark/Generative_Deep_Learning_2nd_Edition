@@ -72,3 +72,4 @@ def draw_score(data, score_num):
                     origin="lower",
                     cmap="Greys",
                 )
+    plt.close()
