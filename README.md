@@ -4,4 +4,4 @@
 
 책을 구매하시면 꼭 [에러타 페이지](https://tensorflow.blog/gen-dl-2/)를 확인해 주세요.
 
-![만들면서 배우는 생성 AI](cover.jpg)
+![만들면서 배우는 생성 AI](cover.jpeg)
