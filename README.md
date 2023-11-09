@@ -36,8 +36,11 @@ PART 2: 6가지 생성 모델링 방식
 
 PART 3: 생성 모델링의 응용 분야
 * 9장: 트랜스포머
+  * [GPT](notebooks/09_transformer/gpt/gpt.ipynb)
 * 10장: 고급 GAN
 * 11장: 음악 생성
+  * [트랜스포머](notebooks/11_music/01_transformer/transformer.ipynb)
+  * [MuseGAN](notebooks/11_music/02_musegan/musegan.ipynb) 
 * 12장: 월드 모델
 * 13장: 멀티모달 모델
 * 14장: 결론
