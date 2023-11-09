@@ -12,10 +12,17 @@
 PART 1: 생성 딥러닝 소개
 * 1장: 셍성 모델링
 * 2장: 딥러닝
+  * [다층 퍼셉트론](notebooks/02_deeplearning/01_mlp/mlp.ipynb)
+  * [합성곱](notebooks/02_deeplearning/02_cnn/convolutions.ipynb)
+  * [합성곱 신경망](notebooks/02_deeplearning/02_cnn/cnn.ipynb)
 
 PART 2: 6가지 생성 모델링 방식
 * 3장: 변이형 오토인코더
+  * [오토인코더](notebooks/03_vae/01_autoencoder/autoencoder.ipynb)
+  * [변이형 오토인코더 - 패션 MNIST](notebooks/03_vae/02_vae_fashion/vae_fashion.ipynb)
+  * [변이형 오토인코더 - CelebA](notebooks/03_vae/03_vae_faces/vae_faces.ipynb)
 * 4장: 생성적 적대 신경망
+  * [DCGAN](
 * 5장: 자기 회귀 모델
 * 6장: 노멀라이징 플로 모델
 * 7장: 에너지 기반 모델
