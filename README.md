@@ -22,9 +22,15 @@ PART 2: 6가지 생성 모델링 방식
   * [변이형 오토인코더 - 패션 MNIST](notebooks/03_vae/02_vae_fashion/vae_fashion.ipynb)
   * [변이형 오토인코더 - CelebA](notebooks/03_vae/03_vae_faces/vae_faces.ipynb)
 * 4장: 생성적 적대 신경망
-  * [DCGAN](
+  * [DCGAN](notebooks/04_gan/01_dcgan/dcgan.ipynb)
+  * [WGAN-GP](notebooks/04_gan/02_wgan_gp/wgan_gp.ipynb)
+  * [CGAN](notebooks/04_gan/03_cgan/cgan.ipynb)
 * 5장: 자기 회귀 모델
+  * [LSTM](notebooks/05_autoregressive/01_lstm/lstm.ipynb)
+  * [PixelCNN](notebooks/05_autoregressive/02_pixelcnn/pixelcnn.ipynb)
+  * [PixelCNN - 혼합 분포](notebooks/05_autoregressive/03_pixelcnn_md/pixelcnn_md.ipynb)
 * 6장: 노멀라이징 플로 모델
+  * [RealNVP](notebooks/06_normflow/01_realnvp/realnvp.ipynb)
 * 7장: 에너지 기반 모델
 * 8장: 확산 모델
 
