@@ -32,7 +32,9 @@ PART 2: 6가지 생성 모델링 방식
 * 6장: 노멀라이징 플로 모델
   * [RealNVP](notebooks/06_normflow/01_realnvp/realnvp.ipynb)
 * 7장: 에너지 기반 모델
+  * [EBM](notebooks/07_ebm/01_ebm/ebm.ipynb) 
 * 8장: 확산 모델
+  * [확산 모델](notebooks/08_diffusion/01_ddm/ddm.ipynb) 
 
 PART 3: 생성 모델링의 응용 분야
 * 9장: 트랜스포머
